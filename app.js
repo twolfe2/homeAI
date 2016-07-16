@@ -19,14 +19,14 @@ let mongoose = require('mongoose');
 let mongoUrl = process.env.MONGODB_URI || 'mongodb://localhost/pizzadb';
 
 mongoose.connect(mongoUrl, err => {
-  console.log(err ||  `MongoDB connected at ${mongoUrl}`);
+	console.log(err || `MongoDB connected at ${mongoUrl}`);
 })
 
 
 let server = http.createServer(app);
 
 server.listen(PORT, err => {
-  console.log(err || `Server listening on port: ${PORT}`);
+	console.log(err || `Server listening on port: ${PORT}`);
 });
 
 // view engine setup
@@ -47,20 +47,20 @@ app.use('/api', require('./routes/api'));
 
 //////////////////////
 
-app.get('/', (req,res) => {
-  res.render('index', {title: 'Hello World!'});
+app.get('/', (req, res) => {
+	res.render('index', { title: 'NuLive' });
 });
 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+	let err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
 // error handlers
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.send(err);
+	res.status(err.status || 500);
+	res.send(err);
 });
